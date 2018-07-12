@@ -3,5 +3,7 @@ function madLib(verb, adj, noun) {
 }
 
 function isSubstring(superString, subString) {
-
+  for (let i = 0; i < superString.length; i++) {
+    
+  }
 }
