@@ -1,0 +1,5 @@
+function Tree() {
+  function Node() {
+    
+  }
+}
