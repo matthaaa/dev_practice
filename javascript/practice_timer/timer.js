@@ -3,8 +3,8 @@
 let displayTime = "00:00:00.00"
 
 let time = 0;
-let baseTime = 0;
-let timeWhilePaused = 0;
+let baseTime = Date.now();
+// let timeWhilePaused = 0;
 let timeRunning = false;
 let interval = null;
 
@@ -20,9 +20,10 @@ document.addEventListener('click', function(event) {
 });
 
 const reset = () => {
-  timeWhilePaused = 0;
-  baseTime = Date.now;
-  updateTime(Date.now);
+  // timeWhilePaused = 0;
+  baseTime = Date.now();
+  updateTime(baseTime);
+  updateDisplay();
 }
 
 const startOrPause = () => {
@@ -31,7 +32,7 @@ const startOrPause = () => {
     updateDisplay();
   } else {
     // Accounts for time since the last saved value of `time`.
-    timeWhilePaused += Date.now() - time;
+    // timeWhilePaused += Date.now() - time;
     startTime();
   }
 }
@@ -39,7 +40,7 @@ const startOrPause = () => {
 const updateTime = (baseTime) => {
   console.log("hello");
   updateDisplay();
-  time = Date.now() - baseTime - timeWhilePaused;
+  time = Date.now() - baseTime;
 }
 
 const startTime = () => {
